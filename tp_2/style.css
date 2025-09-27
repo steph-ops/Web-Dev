@@ -1,0 +1,118 @@
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #74b9ff, #a29bfe);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#infos{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#to{
+  background-color: greenyellow;
+}
+#do{
+  background-color: red;
+}
+/* Champ de recherche */
+#search {
+    width: calc(100% - 30px);
+    padding: 10px;
+    margin: 15px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Optionnel : change la bordure au focus */
+#search:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+
+/* Container */
+#todo_list {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 350px;
+  text-align: center;
+}
+
+/* Label + input row */
+#todo_list label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #2d3436;
+}
+
+#todo_list input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border: 2px solid #dfe6e9;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+#todo_list input[type="text"]:focus {
+  border-color: #0984e3;
+}
+
+/* Add button */
+#todo_list button {
+  padding: 10px 15px;
+  margin-left: 5px;
+  border: none;
+  background: #0984e3;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#todo_list button:hover {
+  background: #74b9ff;
+}
+
+
+
+/* Enlever les puces et marges par défaut */
+#list {
+  list-style-type: none;  
+  padding: 0;
+  margin: 0;
+}
+
+/* Style des éléments */
+#list li {
+  background: #f4f4f4;
+  margin: 8px 0;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+/* Effet au survol */
+#list li:hover {
+  background: #dbeafe;   
+  cursor: pointer;
+}
