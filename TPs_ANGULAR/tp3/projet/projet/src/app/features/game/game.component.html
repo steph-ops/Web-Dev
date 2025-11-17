@@ -1,0 +1,44 @@
+<div class="quiz-container" *ngIf="currentQuestionIndex < questions.length; else finQuiz">
+  
+  <h2>Question {{ currentQuestionIndex + 1 }} / {{ questions.length }}</h2>
+
+  <h3>{{ questions[currentQuestionIndex].question }}</h3>
+
+  <div class="options">
+    <button
+      *ngFor="let option of questions[currentQuestionIndex].options"
+      [disabled]="questions[currentQuestionIndex].answered"
+      (click)="onSelectOption(option, questions[currentQuestionIndex])">
+      {{ option }}
+    </button>
+  </div>
+
+  <br>
+
+  <input 
+    [(ngModel)]="selectedAnswer"
+    [disabled]="questions[currentQuestionIndex].answered"
+    placeholder="Écrire une réponse (optionnel)"
+  />
+
+  <button 
+    (click)="submitTypedAnswer(questions[currentQuestionIndex])"
+    [disabled]="questions[currentQuestionIndex].answered">
+    Valider réponse écrite
+  </button>
+
+  <p class="timer">Temps restant : {{ timer }} s</p>
+
+  <hr>
+
+  <p>Score : {{ score }}</p>
+  <p>Bonnes réponses : {{ correctCount }}</p>
+  <p>Mauvaises réponses : {{ wrongCount }}</p>
+</div>
+
+<ng-template #finQuiz>
+  <h2>🎉 Quiz terminé !</h2>
+  <h3>Score final : {{ score }}</h3>
+  <p>Bonnes réponses : {{ correctCount }}</p>
+  <p>Mauvaises réponses : {{ wrongCount }}</p>
+</ng-template>
