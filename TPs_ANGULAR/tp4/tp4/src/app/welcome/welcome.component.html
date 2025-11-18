@@ -1,0 +1,4 @@
+<input type="text" [(ngModel)]="userName" placeholder="Entrez votre prénom">
+<button (click)="toggleLogin()">Se connecter / Déconnexion</button>
+
+<p *ngIf="isLoggedIn">Bienvenue, utilisateur !</p>

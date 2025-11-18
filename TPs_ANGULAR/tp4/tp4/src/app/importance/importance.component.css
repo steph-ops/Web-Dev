@@ -1,0 +1,14 @@
+.faible {
+  color: green;
+  font-weight: bold;
+}
+
+.moyen {
+  color: orange;
+  font-weight: bold;
+}
+
+.eleve {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,12 @@
+<h2>Liste des tâches</h2>
+
+<ul>
+  <li *ngFor="let item of elements"
+      [ngClass]="{
+        faible: item.importance === 1,
+        moyen: item.importance === 2,
+        eleve: item.importance === 3
+      }">
+    {{ item.nom }} - Importance : {{ item.importance }}
+  </li>
+</ul>

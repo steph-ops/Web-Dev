@@ -1,0 +1,8 @@
+<input type="text" [(ngModel)]="newTitle" placeholder="Titre">
+<input type="text" [(ngModel)]="newContent" placeholder="Contenu">
+<button (click)="addArticle()">Ajouter</button>
+
+<div *ngFor="let a of articles">
+  <h3>{{ a.titre }}</h3>
+  <p>{{ a.contenu }}</p>
+</div>

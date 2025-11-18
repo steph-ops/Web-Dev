@@ -1,0 +1,33 @@
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.correct-answer {
+  background-color: green !important;
+  color: white;
+}
+
+.incorrect-answer {
+  background-color: red !important;
+  color: white;
+}
+
+.selected {
+  border: 2px solid black;
+}
+
+.good-msg {
+  color: green;
+  font-weight: bold;
+}
+
+.bad-msg {
+  color: red;
+  font-weight: bold;
+}

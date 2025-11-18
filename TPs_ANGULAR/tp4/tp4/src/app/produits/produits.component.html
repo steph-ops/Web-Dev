@@ -1,0 +1,20 @@
+<h2>Liste des Produits</h2>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Nom</th>
+    <th>Prix</th>
+    <th>Stock</th>
+  </tr>
+
+  <tr *ngFor="let p of produits"
+      [ngStyle]="{
+        'color': p.stock === 0 ? 'red' : (p.stock < 5 ? 'orange' : 'green'),
+        'opacity': p.stock === 0 ? 0.5 : 1
+      }">
+
+    <td>{{ p.nom }}</td>
+    <td>{{ p.prix }} TND</td>
+    <td>{{ p.stock }}</td>
+  </tr>
+</table>

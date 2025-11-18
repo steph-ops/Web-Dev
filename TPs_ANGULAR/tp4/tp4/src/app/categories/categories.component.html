@@ -1,0 +1,13 @@
+<h2>Catégorie utilisateur</h2>
+
+<div [ngSwitch]="utilisateur.categorie">
+
+  <p *ngSwitchCase="'admin'">👑 Bienvenue Admin, vous avez tous les droits.</p>
+
+  <p *ngSwitchCase="'user'">🙋 Vous êtes un utilisateur normal.</p>
+
+  <p *ngSwitchCase="'guest'">👤 Mode invité : accès limité.</p>
+
+  <p *ngSwitchDefault>❓ Catégorie non reconnue.</p>
+
+</div>

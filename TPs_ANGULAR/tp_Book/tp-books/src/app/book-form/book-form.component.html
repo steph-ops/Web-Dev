@@ -1,0 +1,48 @@
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" [(ngModel)]="book.title" required minlength="3" pattern=".*[a-zA-Z].*">
+    <div *ngIf="bookForm.submitted && bookForm.controls['title']?.invalid" style="color:red">
+      Title invalide (min 3 caractères et pas que des chiffres)
+    </div>
+  </div>
+
+  <div>
+    <label>Author</label>
+    <input type="text" name="author" [(ngModel)]="book.author" required minlength="3">
+  </div>
+
+  <div>
+    <label>Email éditeur</label>
+    <input type="email" name="publisherEmail" [(ngModel)]="book.publisherEmail" required>
+  </div>
+
+  <div>
+    <label>Phone éditeur</label>
+    <input type="text" name="publisherPhone" [(ngModel)]="book.publisherPhone" pattern="^[0-9]{8}$">
+  </div>
+
+  <div>
+    <label>Date de sortie</label>
+    <input type="date" name="releaseDate" [(ngModel)]="book.releaseDate" required>
+  </div>
+
+  <div>
+    <label>Catégorie</label>
+    <select name="category" [(ngModel)]="book.category" required>
+      <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Disponible</label>
+    <input type="checkbox" name="isAvailable" [(ngModel)]="book.isAvailable">
+  </div>
+
+  <div>
+    <label>Stock</label>
+    <input type="number" name="stock" [(ngModel)]="book.stock" min="0">
+  </div>
+
+  <button type="submit">{{ book.id ? 'Mettre à jour' : 'Ajouter' }}</button>
+</form>

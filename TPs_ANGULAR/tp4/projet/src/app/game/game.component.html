@@ -1,0 +1,56 @@
+<h2>Jeu de Questions</h2>
+
+<p>Score : {{ score }}</p>
+
+<!-- afficher seulement si le jeu n'est pas fini -->
+<div *ngIf="!allAnswered(); else endGame">
+
+  <!-- Question actuelle -->
+  <div>
+    <h3>{{ currentQuestion.question }}</h3>
+
+    <!-- Options -->
+    <button
+      *ngFor="let option of currentQuestion.options"
+      (click)="onSelectOption(option, currentQuestion)"
+      [ngClass]="{
+        'correct-answer': currentQuestion.answered && isCorrect(option, currentQuestion),
+        'incorrect-answer': currentQuestion.answered && !isCorrect(option, currentQuestion),
+        'selected': isSelected(option)
+      }"
+      [ngStyle]="{
+        'opacity': currentQuestion.answered ? '0.6' : '1',
+        'transform': isSelected(option) ? 'scale(1.1)' : 'scale(1)'
+      }"
+    >
+      {{ option }}
+    </button>
+
+    <!-- Message -->
+    <div *ngIf="currentQuestion.answered">
+      <p *ngIf="currentQuestion.correct; else wrongMsg" class="good-msg">Bonne réponse !</p>
+      <ng-template #wrongMsg>
+        <p class="bad-msg">Mauvaise réponse.</p>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+
+<!-- Affiché quand toutes les questions sont répondues -->
+<ng-template #endGame>
+  <h2>🎉 Fin du Jeu !</h2>
+  <p>Score final : {{ score }}</p>
+
+  <h3>Historique :</h3>
+  <ul>
+    <li *ngFor="let q of questions">
+      {{ q.question }} —
+      <span [ngClass]="{'correct-answer': q.correct, 'incorrect-answer': !q.correct}">
+        {{ q.correct ? 'Correct' : 'Incorrect' }}
+      </span>
+    </li>
+  </ul>
+
+  <button>Terminer le jeu</button>
+</ng-template>
